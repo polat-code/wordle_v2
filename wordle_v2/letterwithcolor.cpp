@@ -14,7 +14,7 @@ QString LetterWithColor::letter()
 void LetterWithColor::setLetter(QString my_letter)
 {
     if(my_letter != m_letter) {
-        m_letter = my_letter;
+        m_letter = my_letter.toUpper();
         emit letterChanged();
     }
 }
