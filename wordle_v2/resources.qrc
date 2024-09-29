@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>wordle_logo.png</file>
+    </qresource>
+</RCC>

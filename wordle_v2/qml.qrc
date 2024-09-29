@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Game.qml</file>
+        <file>GameFeedbackMessage.qml</file>
+        <file>GameBoxRow.qml</file>
+        <file>GameRowsContainer.qml</file>
+        <file>InputFieldWithLabel.qml</file>
+        <file>Login.qml</file>
+        <file>LoginHeader.qml</file>
+        <file>MainPageIntroSentence.qml</file>
+        <file>MainPageWithLogin.qml</file>
+        <file>MainPageWithoutLogin.qml</file>
+        <file>Register.qml</file>
+        <file>RegisterHeader.qml</file>
+        <file>StyledButton.qml</file>
+        <file>WordleGameHeader.qml</file>
+        <file>WordleLogo.qml</file>
+    </qresource>
+</RCC>
