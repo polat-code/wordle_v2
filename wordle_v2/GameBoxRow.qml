@@ -203,7 +203,8 @@ Row {
                color: "#6AAA64"
                text: "Check"
                onButtonClicked: {
-                   console.log("Styled button is clicked")
+                   var letterArrayWithColored =  GameManager.checkSimilarity(letter1 + letter2 + letter3 + letter4 + letter5)
+                   //console.log("Styled button is clicked")
                }
                customWidth: 90
 

@@ -28,6 +28,7 @@ Window {
                 pageLoader.sourceComponent = loginPage;
             } else if (page === "gamePage") {
                 pageLoader.sourceComponent = gamePage;
+                GameManager.startAGame();
             } else if (page === "mainPageWithLogin") {
                 pageLoader.sourceComponent = mainPageWithLogin;
             } else if (page === "registerPage") {

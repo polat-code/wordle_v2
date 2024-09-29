@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     UserManager userManager(dbManager);
     GameManager gameManager;
 
+      /*
 
     gameManager.startAGame();
     qDebug() << gameManager.checkWordWhetherInWordList("eager");
@@ -41,11 +42,6 @@ int main(int argc, char *argv[])
     QVector<LetterWithColor *> result3 = gameManager.checkSimilarity(guess3);
     qDebug() << "Testing with guess:" << result3[0]->color();
 
-
-
-
-
-    /*
     LetterWithColor letterWithColor1;
     letterWithColor1.setLetter("A");
     qDebug() << letterWithColor1.letter();
@@ -69,6 +65,7 @@ int main(int argc, char *argv[])
 
 
     engine.rootContext()->setContextProperty("UserManager",&userManager);
+    engine.rootContext()->setContextProperty("GameManager",&gameManager);
 
 
 
