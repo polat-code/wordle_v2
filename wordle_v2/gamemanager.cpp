@@ -1,21 +1,35 @@
 #include "gamemanager.h"
-#include <QDebug>
+#include "letterwithcolor.h"
 
-GameManager::GameManager(QObject *parent) : QObject(parent), m_word("")
+GameManager::GameManager(QObject *parent) : QObject(parent)
 {
 
 }
 
-QString GameManager::word()
+void GameManager::startAGame()
 {
-    return m_word;
+
 }
 
-void GameManager::setWord(QString my_word)
+bool GameManager::checkWordWhetherInWordList(QString word)
 {
-    if(my_word != m_word) {
-        m_word = my_word;
-        emit wordChanged();
-    }
+    return true;
 }
+
+QVector<LetterWithColor *> GameManager::checkSimilarity(QString word)
+{
+
+
+}
+
+void GameManager::finishTheGame()
+{
+
+}
+
+bool GameManager::checkGameIsOverOrNoT(const LetterWithColor &userColoredWord)
+{
+
+}
+
 
