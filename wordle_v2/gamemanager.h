@@ -7,6 +7,7 @@
 class GameManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString word READ word WRITE setWord NOTIFY wordChanged)
 public:
     explicit GameManager(QObject *parent = nullptr);
 
@@ -16,7 +17,15 @@ public:
     Q_INVOKABLE void finishTheGame();
     Q_INVOKABLE bool checkGameIsOverOrNoT(const LetterWithColor& userColoredWord); // Updated to pass by const reference
 
+    QString word();
+    void setWord(QString my_word);
+
 signals:
+
+    void wordChanged();
+
+private:
+    QString m_word;
 
 };
 

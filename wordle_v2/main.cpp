@@ -13,7 +13,18 @@ int main(int argc, char *argv[])
     // Initiliaze the database and userManager
     DatabaseManager dbManager("test01_wordle_db.db");
     UserManager userManager(dbManager);
+    GameManager gameManager;
 
+
+    gameManager.startAGame();
+    qDebug() << gameManager.checkWordWhetherInWordList("eager");
+
+
+
+
+
+
+    /*
     LetterWithColor letterWithColor1;
     letterWithColor1.setLetter("A");
     qDebug() << letterWithColor1.letter();
@@ -29,6 +40,7 @@ int main(int argc, char *argv[])
     LetterWithColor letterWithColor4;
     LetterWithColor letterWithColor5;
 
+    */
 
     QGuiApplication app(argc, argv);
 
