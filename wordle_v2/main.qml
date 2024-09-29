@@ -35,9 +35,6 @@ Window {
             }
         }
 
-
-
-
         // Load each page dynamically as a Component
         Component {
             id: mainPageWithoutLogin

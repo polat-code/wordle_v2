@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         databasemanager.cpp \
+        letterwithcolor.cpp \
         main.cpp \
         usermanager.cpp
 
@@ -35,4 +36,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     databasemanager.h \
+    letterwithcolor.h \
     usermanager.h
