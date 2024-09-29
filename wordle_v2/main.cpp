@@ -6,6 +6,7 @@
 #include "gamemanager.h"
 #include "letterwithcolor.h"
 
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -18,7 +19,27 @@ int main(int argc, char *argv[])
 
     gameManager.startAGame();
     qDebug() << gameManager.checkWordWhetherInWordList("eager");
+    qDebug() << gameManager.checkSimilarity("eager")[3]->letter();
 
+
+    // Test case 1: Exact match
+    QString guess1 = "HELLO";
+    qDebug() << "Testing with guess:" << guess1;
+    QVector<LetterWithColor *> result1 = gameManager.checkSimilarity(guess1);
+
+
+
+    // Test case 2: Partial match
+    QString guess2 = "HOLLY";
+    qDebug() << "Testing with guess:" << guess2;
+    QVector<LetterWithColor *> result2 = gameManager.checkSimilarity(guess2);
+
+
+    // Test case 3: No match
+    QString guess3 = "EGGER";
+    qDebug() << "Testing with guess:" << guess3;
+    QVector<LetterWithColor *> result3 = gameManager.checkSimilarity(guess3);
+    qDebug() << "Testing with guess:" << result3[0]->color();
 
 
 
