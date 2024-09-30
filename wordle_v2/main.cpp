@@ -16,13 +16,13 @@ int main(int argc, char *argv[])
     UserManager userManager(dbManager);
     GameManager gameManager;
 
-      /*
+
 
     gameManager.startAGame();
     qDebug() << gameManager.checkWordWhetherInWordList("eager");
-    qDebug() << gameManager.checkSimilarity("eager")[3]->letter();
+    qDebug() << gameManager.checkSimilarity("eager");
 
-
+/*
     // Test case 1: Exact match
     QString guess1 = "HELLO";
     qDebug() << "Testing with guess:" << guess1;

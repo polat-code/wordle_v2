@@ -8,26 +8,38 @@ Rectangle {
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
         GameBoxRow {
+            id:firstGameBoxRowId
             isInfoVisible: true
             isBoxClickable: true
+            onPassNextRow: {
+                firstGameBoxRowId.isInfoVisible = false;
+                firstGameBoxRowId.isBoxClickable = false;
+                secondGameBoxRowId.isInfoVisible = true
+                secondGameBoxRowId.isBoxClickable = true;
+            }
         }
         GameBoxRow {
+            id:secondGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
         }
         GameBoxRow {
+            id:thirdGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
         }
         GameBoxRow {
+            id:fourthGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
         }
         GameBoxRow {
+            id:fifthGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
         }
         GameBoxRow {
+            id:sixthGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
         }

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "letterwithcolor.h"
+#include <QVariantList>
 
 class GameManager : public QObject
 {
@@ -13,9 +14,9 @@ public:
 
     Q_INVOKABLE void startAGame();
     Q_INVOKABLE bool checkWordWhetherInWordList(QString word);
-    Q_INVOKABLE QVector<LetterWithColor *> checkSimilarity(QString word);
+    Q_INVOKABLE QVariantList checkSimilarity(QString word);
     Q_INVOKABLE void finishTheGame();
-    Q_INVOKABLE bool checkGameIsOverOrNoT(const LetterWithColor& userColoredWord); // Updated to pass by const reference
+    Q_INVOKABLE bool checkGameIsOverOrNoT(QVariantList colorList); // Updated to pass by const reference
 
     QString word();
     void setWord(QString my_word);

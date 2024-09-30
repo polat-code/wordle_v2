@@ -1,6 +1,7 @@
 #include "gamemanager.h"
 #include "letterwithcolor.h"
 #include <QDebug>
+#include <QVariantList>
 
 GameManager::GameManager(QObject *parent) : QObject(parent), m_word("")
 {
@@ -30,60 +31,58 @@ bool GameManager::checkWordWhetherInWordList(QString word)
 
     return false;
 }
-
-QVector<LetterWithColor *> GameManager::checkSimilarity(QString word)
+QVariantList GameManager::checkSimilarity(QString word)
 {
-    QVector<LetterWithColor *> result;
+    QVariantList result;
 
     if (word.size() != m_word.size()) {
         qDebug() << "Invalid word length!";
         return result;
     }
 
-    // Track letter usage in the target word using QString instead of QChar
-    QMap<QString, int> letterUsage;
+    // Make both uppercase.
+    QString userWord = word.toUpper();
+    QString searchWord = m_word.toUpper();
 
-    // Step 1: Count the occurrences of each letter in the target word
-    for (int i = 0; i < m_word.size(); ++i) {
-        QString targetLetter = m_word[i].toUpper();
-        letterUsage[targetLetter]++;
+    qDebug() << "TargetWord  : " + searchWord;
+    qDebug() << "userWord  : " + userWord;
+
+    // To track which letters have already been matched as green or yellow.
+    QVector<bool> searchWordMatched(searchWord.size(), false);
+    QVector<bool> userWordMatched(userWord.size(), false);
+
+    // Initialize result with "gray" by default.
+    for (int i = 0; i < userWord.size(); ++i) {
+        result.append("gray");  // Initialize each element as "gray"
     }
 
-    // Step 2: First pass - find all exact matches (GREEN)
-    QVector<bool> matchedExact(word.size(), false);  // Track exact matches
-
-    for (int i = 0; i < word.size(); ++i) {
-        QString guessedLetter = word[i].toUpper();
-        QString targetLetter = m_word[i].toUpper();
-
-        LetterWithColor *letterWithColor = new LetterWithColor;
-        letterWithColor->setLetter(guessedLetter);
-
-        if (guessedLetter == targetLetter) {
-            // Exact match
-            letterWithColor->setColor(LetterWithColor::GREEN);
-            matchedExact[i] = true; // Mark this position as an exact match
-            letterUsage[targetLetter]--; // Decrease usage count
+    // First pass: Check for "green" (correct position).
+    for (int i = 0; i < userWord.size(); ++i) {
+        if (userWord[i] == searchWord[i]) {
+            result[i] = "green";  // Update to "green"
+            searchWordMatched[i] = true;  // Mark this position as matched in the search word
+            userWordMatched[i] = true;  // Mark this position as matched in the user word
         }
-
-        result.append(letterWithColor); // Add the letter to the result
     }
 
-    // Step 3: Second pass - handle partial matches (YELLOW) and non-matches (GRAY)
-    for (int i = 0; i < word.size(); ++i) {
-        if (matchedExact[i]) {
-            continue; // Skip already matched letters
+    // Second pass: Check for "yellow" (correct letter, wrong position).
+    for (int i = 0; i < userWord.size(); ++i) {
+        if (result[i] == "green") {
+            continue;  // Skip already matched greens
         }
 
-        QString guessedLetter = word[i].toUpper();
+        bool foundYellow = false;
+        for (int j = 0; j < searchWord.size(); ++j) {
+            if (!searchWordMatched[j] && !userWordMatched[i] && userWord[i] == searchWord[j]) {
+                result[i] = "yellow";  // Update to "yellow"
+                searchWordMatched[j] = true;  // Mark this position as matched in the search word
+                foundYellow = true;
+                break;
+            }
+        }
 
-        if (m_word.contains(guessedLetter) && letterUsage[guessedLetter] > 0) {
-            // Partial match (YELLOW)
-            result[i]->setColor(LetterWithColor::YELLOW);
-            letterUsage[guessedLetter]--; // Decrease usage count
-        } else {
-            // No match (GRAY)
-            result[i]->setColor(LetterWithColor::GRAY);
+        if (!foundYellow) {
+            result[i] = "gray";  // Keep as "gray" if no match is found
         }
     }
 
@@ -96,9 +95,14 @@ void GameManager::finishTheGame()
     m_word = "";
 }
 
-bool GameManager::checkGameIsOverOrNoT(const LetterWithColor &userColoredWord)
+bool GameManager::checkGameIsOverOrNoT(QVariantList colorList)
 {
-
+    for(int i = 0;i < colorList.size();i++) {
+        if(colorList.at(i) != "green") {
+            return false;
+        }
+    }
+    return true;
 }
 
 QString GameManager::word()
