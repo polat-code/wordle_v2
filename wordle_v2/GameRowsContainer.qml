@@ -22,11 +22,12 @@ Rectangle {
                     secondGameBoxRowId.isBoxClickable = true;
                 }else {
                     sendAMessage("Congratulations! You find it!","green")
+                    GameManager.finishTheGame();
                 }
 
-
-
-
+            }
+            onSendMessage: {
+                sendAMessage(message,color);
             }
         }
         GameBoxRow {
@@ -42,8 +43,12 @@ Rectangle {
                     thirdGameBoxRowId.isBoxClickable = true;
                 }else {
                     sendAMessage("Congratulations! You find it!","green")
+                    GameManager.finishTheGame();
                 }
 
+            }
+            onSendMessage: {
+                sendAMessage(message,color);
             }
         }
         GameBoxRow {
@@ -59,8 +64,12 @@ Rectangle {
                     fourthGameBoxRowId.isBoxClickable = true;
                 }else {
                     sendAMessage("Congratulations! You find it!","green")
+                    GameManager.finishTheGame();
                 }
 
+            }
+            onSendMessage: {
+                sendAMessage(message,color);
             }
         }
         GameBoxRow {
@@ -76,8 +85,12 @@ Rectangle {
                     fifthGameBoxRowId.isBoxClickable = true;
                 }else {
                     sendAMessage("Congratulations! You find it!","green")
+                    GameManager.finishTheGame();
                 }
 
+            }
+            onSendMessage: {
+                sendAMessage(message,color);
             }
         }
         GameBoxRow {
@@ -93,8 +106,12 @@ Rectangle {
                     sixthGameBoxRowId.isBoxClickable = true;
                 }else {
                     sendAMessage("Congratulations! You find it!","green")
+                    GameManager.finishTheGame();
                 }
 
+            }
+            onSendMessage: {
+                sendAMessage(message,color);
             }
         }
         GameBoxRow {
@@ -107,8 +124,12 @@ Rectangle {
                 var isGameOver = GameManager.checkGameIsOverOrNoT(data);
                 if(isGameOver) {
                      sendAMessage("Congratulations! You find it!","green")
+                    GameManager.finishTheGame();
                 }
 
+            }
+            onSendMessage: {
+                sendAMessage(message,color);
             }
         }
 

@@ -4,7 +4,6 @@
 #include "databasemanager.h"
 #include "usermanager.h"
 #include "gamemanager.h"
-#include "letterwithcolor.h"
 
 
 int main(int argc, char *argv[])

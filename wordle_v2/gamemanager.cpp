@@ -1,5 +1,4 @@
 #include "gamemanager.h"
-#include "letterwithcolor.h"
 #include <QDebug>
 #include <QVariantList>
 
@@ -22,7 +21,7 @@ void GameManager::startAGame()
 bool GameManager::checkWordWhetherInWordList(QString word)
 {
     // Check the word from wordManager.
-    const QStringList wordList = {"apple", "hello", "world", "raise", "grape", "space", "learn"};
+    const QStringList wordList = {"apple", "hello", "world", "raise", "grape", "space", "learn","eager"};
     for(int i = 0;i < wordList.length(); i++) {
         if(word.toUpper() == wordList[i].toUpper()) {
             return true;
@@ -44,8 +43,8 @@ QVariantList GameManager::checkSimilarity(QString word)
     QString userWord = word.toUpper();
     QString searchWord = m_word.toUpper();
 
-    qDebug() << "TargetWord  : " + searchWord;
-    qDebug() << "userWord  : " + userWord;
+    //qDebug() << "TargetWord  : " + searchWord;
+    //qDebug() << "userWord  : " + userWord;
 
     // To track which letters have already been matched as green or yellow.
     QVector<bool> searchWordMatched(searchWord.size(), false);

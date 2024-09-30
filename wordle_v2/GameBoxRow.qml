@@ -16,6 +16,7 @@ Row {
 
 
     signal passNextRow(var data);
+    signal sendMessage(string message,color color);
 
 
     Rectangle{
@@ -51,8 +52,6 @@ Row {
 
        }
     }
-
-
 
     Rectangle{
        id: gameBox2Id
@@ -206,18 +205,22 @@ Row {
                color: "#6AAA64"
                text: "Check"
                onButtonClicked: {
-                   var data =  GameManager.checkSimilarity(letter1 + letter2 + letter3 + letter4 + letter5)
+                   var isValidWord = GameManager.checkWordWhetherInWordList(letter1 + letter2 + letter3 + letter4 + letter5)
+                   if(!isValidWord) {
+                        sendMessage("This word is not from word list","red")
+                   }else {
+                       var data =  GameManager.checkSimilarity(letter1 + letter2 + letter3 + letter4 + letter5)
 
-                   gameBox1Id.color = data[0] === "green" ? "#6AAA64" : (data[0] === "yellow" ? "#D1B036": "#3A3A3C");
+                       gameBox1Id.color = data[0] === "green" ? "#6AAA64" : (data[0] === "yellow" ? "#D1B036": "#3A3A3C");
 
-                   gameBox2Id.color = data[1] === "green" ? "#6AAA64" : (data[1] === "yellow" ? "#D1B036": "#3A3A3C");
-                   gameBox3Id.color = data[2] === "green" ? "#6AAA64" : (data[2] === "yellow" ? "#D1B036": "#3A3A3C");
-                   gameBox4Id.color = data[3] === "green" ? "#6AAA64" : (data[3] === "yellow" ? "#D1B036": "#3A3A3C");
-                   gameBox5Id.color = data[4] === "green" ? "#6AAA64" : (data[4] === "yellow" ? "#D1B036": "#3A3A3C");
+                       gameBox2Id.color = data[1] === "green" ? "#6AAA64" : (data[1] === "yellow" ? "#D1B036": "#3A3A3C");
+                       gameBox3Id.color = data[2] === "green" ? "#6AAA64" : (data[2] === "yellow" ? "#D1B036": "#3A3A3C");
+                       gameBox4Id.color = data[3] === "green" ? "#6AAA64" : (data[3] === "yellow" ? "#D1B036": "#3A3A3C");
+                       gameBox5Id.color = data[4] === "green" ? "#6AAA64" : (data[4] === "yellow" ? "#D1B036": "#3A3A3C");
 
 
-                   passNextRow(data);
-
+                       passNextRow(data);
+                   }
 
                }
                customWidth: 90

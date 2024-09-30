@@ -2,7 +2,6 @@
 #define GAMEMANAGER_H
 
 #include <QObject>
-#include "letterwithcolor.h"
 #include <QVariantList>
 
 class GameManager : public QObject

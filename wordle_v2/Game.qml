@@ -28,7 +28,7 @@ Page {
 
         GameFeedbackMessage {
             id: gameFeedBackMessageId
-            message: "This is a message"
+            message: ""
 
         }
 
@@ -36,10 +36,14 @@ Page {
             onSendAMessage: {
                 gameFeedBackMessageId.message = message
                 gameFeedBackMessageId.textColor = color;
+                backtoMainPageId.visible = true
             }
         }
 
+
+
     }
+
 
     Component.onCompleted: {
         gamePageId.forceActiveFocus(); // Set focus to the email input field when the page is loaded
