@@ -15,7 +15,7 @@ Rectangle {
 
     // Message and text color properties
     property string message: "Message"
-    property int textColor: textColorsEnumTypeId.Success
+    property color textColor: "gray"
 
     Text {
         id: guessWordHeaderId
@@ -24,6 +24,6 @@ Rectangle {
         font.pointSize: 20
 
         // Use the enum value to determine the color
-        color: gameFeedbackMessageId.textColor === textColorsEnumTypeId.danger ? "red" : "green"
+        color: textColor
     }
 }

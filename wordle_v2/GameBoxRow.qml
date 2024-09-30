@@ -15,7 +15,7 @@ Row {
     property bool isBoxClickable: false
 
 
-    signal passNextRow();
+    signal passNextRow(var data);
 
 
     Rectangle{
@@ -207,7 +207,6 @@ Row {
                text: "Check"
                onButtonClicked: {
                    var data =  GameManager.checkSimilarity(letter1 + letter2 + letter3 + letter4 + letter5)
-                   var isGameOver = GameManager.checkGameIsOverOrNoT(data);
 
                    gameBox1Id.color = data[0] === "green" ? "#6AAA64" : (data[0] === "yellow" ? "#D1B036": "#3A3A3C");
 
@@ -216,11 +215,9 @@ Row {
                    gameBox4Id.color = data[3] === "green" ? "#6AAA64" : (data[3] === "yellow" ? "#D1B036": "#3A3A3C");
                    gameBox5Id.color = data[4] === "green" ? "#6AAA64" : (data[4] === "yellow" ? "#D1B036": "#3A3A3C");
 
-                   if(isGameOver) {
-                       console.log("Game is over")
-                   }else {
-                       passNextRow();
-                   }
+
+                   passNextRow(data);
+
 
                }
                customWidth: 90

@@ -5,6 +5,8 @@ Rectangle {
     height: 410
     anchors.horizontalCenter: parent.horizontalCenter
 
+    signal sendAMessage(string message,color color);
+
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
         GameBoxRow {
@@ -14,8 +16,17 @@ Rectangle {
             onPassNextRow: {
                 firstGameBoxRowId.isInfoVisible = false;
                 firstGameBoxRowId.isBoxClickable = false;
-                secondGameBoxRowId.isInfoVisible = true
-                secondGameBoxRowId.isBoxClickable = true;
+                var isGameOver = GameManager.checkGameIsOverOrNoT(data);
+                if(!isGameOver){
+                    secondGameBoxRowId.isInfoVisible = true
+                    secondGameBoxRowId.isBoxClickable = true;
+                }else {
+                    sendAMessage("Congratulations! You find it!","green")
+                }
+
+
+
+
             }
         }
         GameBoxRow {
@@ -25,8 +36,14 @@ Rectangle {
             onPassNextRow: {
                 secondGameBoxRowId.isInfoVisible = false;
                 secondGameBoxRowId.isBoxClickable = false;
-                thirdGameBoxRowId.isInfoVisible = true
-                thirdGameBoxRowId.isBoxClickable = true;
+                var isGameOver = GameManager.checkGameIsOverOrNoT(data);
+                if(!isGameOver){
+                    thirdGameBoxRowId.isInfoVisible = true;
+                    thirdGameBoxRowId.isBoxClickable = true;
+                }else {
+                    sendAMessage("Congratulations! You find it!","green")
+                }
+
             }
         }
         GameBoxRow {
@@ -36,8 +53,14 @@ Rectangle {
             onPassNextRow: {
                 thirdGameBoxRowId.isInfoVisible = false;
                 thirdGameBoxRowId.isBoxClickable = false;
-                fourthGameBoxRowId.isInfoVisible = true
-                fourthGameBoxRowId.isBoxClickable = true;
+                var isGameOver = GameManager.checkGameIsOverOrNoT(data);
+                if(!isGameOver){
+                    fourthGameBoxRowId.isInfoVisible = true;
+                    fourthGameBoxRowId.isBoxClickable = true;
+                }else {
+                    sendAMessage("Congratulations! You find it!","green")
+                }
+
             }
         }
         GameBoxRow {
@@ -47,8 +70,14 @@ Rectangle {
             onPassNextRow: {
                 fourthGameBoxRowId.isInfoVisible = false;
                 fourthGameBoxRowId.isBoxClickable = false;
-                fifthGameBoxRowId.isInfoVisible = true
-                fifthGameBoxRowId.isBoxClickable = true;
+                var isGameOver = GameManager.checkGameIsOverOrNoT(data);
+                if(!isGameOver){
+                    fifthGameBoxRowId.isInfoVisible = true
+                    fifthGameBoxRowId.isBoxClickable = true;
+                }else {
+                    sendAMessage("Congratulations! You find it!","green")
+                }
+
             }
         }
         GameBoxRow {
@@ -58,8 +87,14 @@ Rectangle {
             onPassNextRow: {
                 fifthGameBoxRowId.isInfoVisible = false;
                 fifthGameBoxRowId.isBoxClickable = false;
-                sixthGameBoxRowId.isInfoVisible = true
-                sixthGameBoxRowId.isBoxClickable = true;
+                var isGameOver = GameManager.checkGameIsOverOrNoT(data);
+                if(!isGameOver){
+                    sixthGameBoxRowId.isInfoVisible = true
+                    sixthGameBoxRowId.isBoxClickable = true;
+                }else {
+                    sendAMessage("Congratulations! You find it!","green")
+                }
+
             }
         }
         GameBoxRow {
@@ -69,6 +104,10 @@ Rectangle {
             onPassNextRow: {
                 sixthGameBoxRowId.isInfoVisible = false;
                 sixthGameBoxRowId.isBoxClickable = false;
+                var isGameOver = GameManager.checkGameIsOverOrNoT(data);
+                if(isGameOver) {
+                     sendAMessage("Congratulations! You find it!","green")
+                }
 
             }
         }

@@ -27,12 +27,16 @@ Page {
         }
 
         GameFeedbackMessage {
+            id: gameFeedBackMessageId
             message: "This is a message"
-            textColor: 0 // or textColorsEnumTypeId.Success
+
         }
 
         GameRowsContainer {
-
+            onSendAMessage: {
+                gameFeedBackMessageId.message = message
+                gameFeedBackMessageId.textColor = color;
+            }
         }
 
     }
