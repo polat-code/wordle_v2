@@ -10,18 +10,17 @@ GameManager::GameManager(QObject *parent) : QObject(parent), m_word("")
 void GameManager::startAGame()
 {
 
-    // Get a random word from wordManager
-    QString randomWord = "hello";
-    m_word = randomWord.toUpper();
+    const QStringList wordList = {"apple", "hello", "world", "raise", "grape", "space", "learn","eager","beaty"};
+    QString aWord = "hello";
+    m_word = aWord.toUpper();
 
-   //qDebug() << "m_word is : " + m_word;
 
 }
 
 bool GameManager::checkWordWhetherInWordList(QString word)
 {
     // Check the word from wordManager.
-    const QStringList wordList = {"apple", "hello", "world", "raise", "grape", "space", "learn","eager"};
+    const QStringList wordList = {"apple", "hello", "world", "raise", "grape", "space", "learn","eager","beaty"};
     for(int i = 0;i < wordList.length(); i++) {
         if(word.toUpper() == wordList[i].toUpper()) {
             return true;

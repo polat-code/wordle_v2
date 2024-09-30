@@ -36,12 +36,9 @@ Page {
             onSendAMessage: {
                 gameFeedBackMessageId.message = message
                 gameFeedBackMessageId.textColor = color;
-                backtoMainPageId.visible = true
+
             }
         }
-
-
-
     }
 
 

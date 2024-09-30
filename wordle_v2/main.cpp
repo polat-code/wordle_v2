@@ -5,7 +5,6 @@
 #include "usermanager.h"
 #include "gamemanager.h"
 
-
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -17,9 +16,6 @@ int main(int argc, char *argv[])
 
 
 
-    gameManager.startAGame();
-    qDebug() << gameManager.checkWordWhetherInWordList("eager");
-    qDebug() << gameManager.checkSimilarity("eager");
 
 /*
     // Test case 1: Exact match
