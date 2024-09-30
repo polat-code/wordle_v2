@@ -22,14 +22,12 @@ Page {
                 text: qsTr("Guess Word")
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pointSize: 36
-
             }
         }
 
         GameFeedbackMessage {
             id: gameFeedBackMessageId
             message: ""
-
         }
 
         GameRowsContainer {
@@ -40,7 +38,6 @@ Page {
             }
         }
     }
-
 
     Component.onCompleted: {
         gamePageId.forceActiveFocus(); // Set focus to the email input field when the page is loaded

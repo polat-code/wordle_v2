@@ -42,8 +42,6 @@ QVariantList GameManager::checkSimilarity(QString word)
     QString userWord = word.toUpper();
     QString searchWord = m_word.toUpper();
 
-    //qDebug() << "TargetWord  : " + searchWord;
-    //qDebug() << "userWord  : " + userWord;
 
     // To track which letters have already been matched as green or yellow.
     QVector<bool> searchWordMatched(searchWord.size(), false);

@@ -20,7 +20,9 @@ Page {
                 surname !== "" &&
                 email !== "" &&
                 telephone !== "" &&
-                password !== ""
+                password !== "" &&
+                passwordRepeat !== "" &&
+                password === passwordRepeat
 
           ) {
             return true;
