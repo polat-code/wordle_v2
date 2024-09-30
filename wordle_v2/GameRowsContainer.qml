@@ -22,26 +22,55 @@ Rectangle {
             id:secondGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
+            onPassNextRow: {
+                secondGameBoxRowId.isInfoVisible = false;
+                secondGameBoxRowId.isBoxClickable = false;
+                thirdGameBoxRowId.isInfoVisible = true
+                thirdGameBoxRowId.isBoxClickable = true;
+            }
         }
         GameBoxRow {
             id:thirdGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
+            onPassNextRow: {
+                thirdGameBoxRowId.isInfoVisible = false;
+                thirdGameBoxRowId.isBoxClickable = false;
+                fourthGameBoxRowId.isInfoVisible = true
+                fourthGameBoxRowId.isBoxClickable = true;
+            }
         }
         GameBoxRow {
             id:fourthGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
+            onPassNextRow: {
+                fourthGameBoxRowId.isInfoVisible = false;
+                fourthGameBoxRowId.isBoxClickable = false;
+                fifthGameBoxRowId.isInfoVisible = true
+                fifthGameBoxRowId.isBoxClickable = true;
+            }
         }
         GameBoxRow {
             id:fifthGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
+            onPassNextRow: {
+                fifthGameBoxRowId.isInfoVisible = false;
+                fifthGameBoxRowId.isBoxClickable = false;
+                sixthGameBoxRowId.isInfoVisible = true
+                sixthGameBoxRowId.isBoxClickable = true;
+            }
         }
         GameBoxRow {
             id:sixthGameBoxRowId
             isInfoVisible: false
             isBoxClickable: false
+            onPassNextRow: {
+                sixthGameBoxRowId.isInfoVisible = false;
+                sixthGameBoxRowId.isBoxClickable = false;
+
+            }
         }
 
         Rectangle {
